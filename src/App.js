@@ -36,7 +36,16 @@ function App() {
   };
 
   //Mark as task done
-  const markDone = (id) => {};
+  const markDone = (id) => {
+    let newTask = toDo.map((task) => {
+      if (task.id === id) {
+        return { ...task, status: !task.status };
+      }
+      return task;
+    });
+    setToDo(newTask);
+    console.log(newTask);
+  };
 
   //Cancel update
   const cancelUpdate = () => {};
@@ -98,7 +107,10 @@ function App() {
                     <span className="taskText">{task.title}</span>
                   </div>
                   <div className="iconsWrap">
-                    <span title="Completed / Not Completed">
+                    <span
+                      title="Completed / Not Completed"
+                      onClick={(e) => markDone(task.id)}
+                    >
                       <FontAwesomeIcon icon={faCircleCheck} />
                     </span>
                     <span title="Edit">
