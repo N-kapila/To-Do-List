@@ -38,7 +38,7 @@ function App() {
       return task;
     });
     setToDo(newTask);
-    console.log(newTask);
+    //console.log(newTask);
   };
 
   //Cancel update
